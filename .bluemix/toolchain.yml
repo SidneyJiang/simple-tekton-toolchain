@@ -34,14 +34,14 @@ services:
       type: clone
       has_issues: true
       enable_traceability: true
-  repo2:
+  repo-trigger:
     service_id: githubconsolidated
     parameters:
-      repo_name: '{{toolchain.name}}'
+      repo_name: '{{toolchain.name}}-trigger'
       source_repo_url: 'https://github.com/SidneyJiang/tekton-example'
       type: clone
-      has_issues: true
-      enable_traceability: true
+      has_issues: false
+      enable_traceability: false
   build:
     service_id: pipeline
     parameters:
