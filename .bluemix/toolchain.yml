@@ -11,6 +11,7 @@ template:
   required:
     - build
     - repo
+    - repo-trigger
   info:
     git url: >
       "[" + $env.repository + "]" +
@@ -33,6 +34,14 @@ services:
       type: clone
       has_issues: true
       enable_traceability: true
+  repo-trigger:
+    service_id: githubconsolidated
+    parameters:
+      repo_name: '{{toolchain.name}}-trigger'
+      source_repo_url: 'https://github.com/SidneyJiang/tekton-example'
+      type: clone
+      has_issues: false
+      enable_traceability: false
   build:
     service_id: pipeline
     parameters:
@@ -46,6 +55,7 @@ services:
           $text: tekton.yaml
         env:
           GIT_REPO: repo
+          GIT_REPO_TRIGGER: repo-trigger
           CF_APP_NAME: '{{form.pipeline.parameters.app-name}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
