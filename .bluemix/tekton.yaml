@@ -1,4 +1,9 @@
 ---
+inputs:	
+- type: git	
+  branch: master	
+  service: ${GIT_REPO}	
+  path: .tekton
 triggers:
 - type: git
   name: Git PR Trigger
