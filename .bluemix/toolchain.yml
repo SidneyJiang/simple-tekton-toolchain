@@ -11,6 +11,7 @@ template:
   required:
     - build
     - repo
+    - repo-trigger
   info:
     git url: >
       "[" + $env.repository + "]" +
@@ -54,6 +55,7 @@ services:
           $text: tekton.yaml
         env:
           GIT_REPO: repo
+          GIT_REPO_TRIGGER: repo-trigger
           CF_APP_NAME: '{{form.pipeline.parameters.app-name}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
@@ -63,7 +65,6 @@ services:
           PROD_CLUSTER_NAMESPACE: '{{form.pipeline.parameters.prod-cluster-namespace}}'
           REPOSITORY: '{{services.repo.parameters.source_repo_url}}'
           REVISION: master
-          GIT_REPO_TRIGGER: repo2
         execute: true
   webide:
     service_id: orion
