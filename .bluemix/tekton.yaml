@@ -7,7 +7,7 @@ inputs:
 triggers:
 - type: git
   name: Git PR Trigger
-  service: ${GIT_REPO}
+  service: ${GIT_REPO_TRIGGER}
   branch: master
   events: {"push":true,"pull_request":true,"pull_request_closed":false}
   eventListener: listener
