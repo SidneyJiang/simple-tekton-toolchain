@@ -16,7 +16,7 @@ triggers:
   eventListener: listener
 properties:
 - name: apikey
-  value: ${API_KEY}
+  value: '{vault::myKeyprotector.do not delete for now}'
   type: SECURE
 - name: cluster
   value: ${PROD_CLUSTER_NAME}
