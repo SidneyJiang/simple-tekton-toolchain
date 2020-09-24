@@ -7,7 +7,7 @@ inputs:
 triggers:
 - type: git
   name: Git PR Trigger
-  service: ${GIT_REPO_TRIGGER}
+  url: https://github.com/SidneyJiang/tekton-example
   branch: master
   events: {"push":true,"pull_request":true,"pull_request_closed":false}
   eventListener: listener
@@ -16,7 +16,7 @@ triggers:
   eventListener: listener
 properties:
 - name: apikey
-  value: '{vault::myKeyprotector.do not delete for now}'
+  value: ${API_KEY}
   type: SECURE
 - name: cluster
   value: ${PROD_CLUSTER_NAME}
