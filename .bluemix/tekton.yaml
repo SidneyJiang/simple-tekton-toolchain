@@ -39,3 +39,4 @@ properties:
 - name: revision
   value: ${REVISION}
   type: text
+private_worker: ${PRIVATE_WORKER}
