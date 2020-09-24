@@ -26,6 +26,10 @@ toolchain:
     getting_started:
       $ref: "#/messages/template.gettingStarted" 
 services:
+  privateWorker:
+    service_id: private_worker
+    parameters:
+      name: private-worker
   repo:
     service_id: githubconsolidated
     parameters:
@@ -65,6 +69,7 @@ services:
           PROD_CLUSTER_NAMESPACE: '{{form.pipeline.parameters.prod-cluster-namespace}}'
           REPOSITORY: '{{services.repo.parameters.source_repo_url}}'
           REVISION: master
+          PRIVATE_WORKER: '{{services.privateWorker.parameters.name}}'
         execute: Manual Trigger
   webide:
     service_id: orion
