@@ -11,9 +11,25 @@ triggers:
   branch: master
   events: {"push":true,"pull_request":true,"pull_request_closed":false}
   eventListener: listener
+- type: git
+  name: Git PR Trigger
+  service: ${GIT_REPO_TRIGGER}
+  branch: integration
+  events: {"push":true,"pull_request":true,"pull_request_closed":true}
+  eventListener: listener
 - type: manual
   name: Manual Trigger
   eventListener: listener
+- type: timer
+  name: Timmer Trigger
+  eventListener: listener
+- type: generic
+  name: Generic Trigger
+  secret: 
+    value: top secret
+    type: tokenMatches
+    source: payload
+    keyName: taken
 properties:
 - name: apikey
   value: ${API_KEY}
