@@ -35,7 +35,7 @@ services:
     parameters:
       repo_name: '{{toolchain.name}}'
       source_repo_url: 'https://github.com/open-toolchain/hello-tekton'
-      type: clone
+      type: link
       has_issues: true
       enable_traceability: true
   repo-trigger:
@@ -43,7 +43,7 @@ services:
     parameters:
       repo_name: '{{toolchain.name}}-trigger'
       source_repo_url: 'https://github.com/SidneyJiang/tekton-example'
-      type: clone
+      type: link
       has_issues: false
       enable_traceability: false
   build:
