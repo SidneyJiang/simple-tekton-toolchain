@@ -34,8 +34,8 @@ services:
     service_id: githubconsolidated
     parameters:
       repo_name: '{{toolchain.name}}'
-      repo_url: 'https://github.com/open-toolchain/hello-tekton'
-      type: link
+      source_repo_url: 'https://github.com/open-toolchain/hello-tekton'
+      type: clone
       has_issues: true
       enable_traceability: true
   repo-trigger:
