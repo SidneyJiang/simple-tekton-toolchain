@@ -56,4 +56,10 @@ properties:
 - name: revision
   value: ${REVISION}
   type: text
+- name: webide
+  value: webide
+  type: INTEGRATION
+- name: repo
+  value: ${GIT_REPO}
+  type: INTEGRATION
 private_worker: ${PRIVATE_WORKER}
