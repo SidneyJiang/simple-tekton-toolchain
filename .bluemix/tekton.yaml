@@ -12,7 +12,7 @@ triggers:
   events: {"push":true,"pull_request":true,"pull_request_closed":false}
   eventListener: listener
 - type: git
-  name: Git PR Trigger
+  name: Git PR Trigger 2
   service: ${GIT_REPO_TRIGGER}
   branch: integration
   events: {"push":true,"pull_request":true,"pull_request_closed":true}
@@ -25,6 +25,7 @@ triggers:
   eventListener: listener
 - type: generic
   name: Generic Trigger
+  eventListener: listener
   secret: 
     value: top secret
     type: tokenMatches
