@@ -7,7 +7,7 @@ inputs:
 triggers:
 - type: git
   name: Git PR Trigger
-  url: https://github.com/SidneyJiang/tekton-example
+  url: https://github.com/SidneyJiang/tekton-example.git
   branch: master
   events: {"push":true,"pull_request":true,"pull_request_closed":false}
   eventListener: listener
