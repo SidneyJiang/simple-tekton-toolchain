@@ -11,18 +11,25 @@ triggers:
   branch: master
   events: {"push":true,"pull_request":true,"pull_request_closed":false}
   eventListener: listener
+  is_public_worker: true
 - type: git
   name: Git PR Trigger 2
   service: ${GIT_REPO_TRIGGER}
   branch: integration
   events: {"push":true,"pull_request":true,"pull_request_closed":true}
   eventListener: listener
+  private_worker: ${TRIGGER_PRIVATE_WORKER}
 - type: manual
   name: Manual Trigger
   eventListener: listener
+  concurrency:
+    maxConcurrentRuns: 3
 - type: timer
   name: Timmer Trigger
   eventListener: listener
+  concurrency:
+    maxConcurrentRuns: 2
+    limited: true
 - type: generic
   name: Generic Trigger
   eventListener: listener
