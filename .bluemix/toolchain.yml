@@ -30,6 +30,10 @@ services:
     service_id: private_worker
     parameters:
       name: private-worker
+  triggerPrivateWorker:
+    service_id: private_worker
+    parameters:
+      name: trigger-private-worker
   repo:
     service_id: githubconsolidated
     parameters:
@@ -70,6 +74,7 @@ services:
           REPOSITORY: '{{services.repo.parameters.source_repo_url}}'
           REVISION: master
           PRIVATE_WORKER: '{{services.privateWorker.parameters.name}}'
+          TRIGGER_PRIVATE_WORKER: '{{services.triggerPrivateWorker.parameters.name}}'
         execute: Manual Trigger
   webide:
     service_id: orion
