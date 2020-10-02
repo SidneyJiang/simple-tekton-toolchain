@@ -42,11 +42,27 @@ services:
       type: clone
       has_issues: true
       enable_traceability: true
-  repo-trigger:
+  repo-trigger-1:
     service_id: githubconsolidated
     parameters:
-      repo_name: '{{toolchain.name}}-trigger'
+      repo_name: '{{toolchain.name}}-trigger-1'
       repo_url: 'https://github.com/SidneyJiang/tekton-example'
+      type: link
+      has_issues: false
+      enable_traceability: false
+  repo-trigger-2:
+    service_id: githubconsolidated
+    parameters:
+      repo_name: '{{toolchain.name}}-trigger-2'
+      repo_url: 'https://github.com/SidneyJiang/simple-toolchain-20190201204508090'
+      type: link
+      has_issues: false
+      enable_traceability: false
+  repo-trigger-3:
+    service_id: githubconsolidated
+    parameters:
+      repo_name: '{{toolchain.name}}-trigger-3'
+      repo_url: 'https://github.com/SidneyJiang/simple-tekton-toolchain-20200909202627869'
       type: link
       has_issues: false
       enable_traceability: false
@@ -63,7 +79,9 @@ services:
           $text: tekton.yaml
         env:
           GIT_REPO: repo
-          GIT_REPO_TRIGGER: repo-trigger
+          GIT_REPO_TRIGGER_1: repo-trigger-1
+          GIT_REPO_TRIGGER_2: repo-trigger-2
+          GIT_REPO_TRIGGER_3: repo-trigger-3
           CF_APP_NAME: '{{form.pipeline.parameters.app-name}}'
           REGISTRY_REGION_ID: '{{form.pipeline.parameters.registry-region}}'
           REGISTRY_NAMESPACE: '{{form.pipeline.parameters.registry-namespace}}'
