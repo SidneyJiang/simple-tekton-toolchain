@@ -6,19 +6,31 @@ inputs:
   path: .tekton
 triggers:
 - type: git
-  name: Git PR Trigger
+  name: Git PR Trigger 1.1
   url: https://github.com/SidneyJiang/tekton-example.git
   branch: master
   events: {"push":true,"pull_request":true,"pull_request_closed":false}
   eventListener: listener
   is_public_worker: true
 - type: git
-  name: Git PR Trigger 2
-  service: ${GIT_REPO_TRIGGER}
+  name: Git PR Trigger 1.2
+  service: ${GIT_REPO_TRIGGER_1}
   branch: integration
   events: {"push":true,"pull_request":true,"pull_request_closed":true}
   eventListener: listener
   private_worker: ${TRIGGER_PRIVATE_WORKER}
+- type: git
+  name: Git PR Trigger 2
+  service: ${GIT_REPO_TRIGGER_2}
+  branch: master
+  events: {"push":true,"pull_request":true,"pull_request_closed":true}
+  eventListener: listener
+- type: git
+  name: Git PR Trigger 3
+  service: ${GIT_REPO_TRIGGER_3}
+  branch: master
+  events: {"push":true,"pull_request":true,"pull_request_closed":true}
+  eventListener: listener
 - type: manual
   name: Manual Trigger
   eventListener: listener
